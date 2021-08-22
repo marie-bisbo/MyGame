@@ -27,5 +27,6 @@ FString AInteractable::GetUseActionText() const
 	else
 	{
 		UE_LOG(LogTemp, Error, TEXT("No inventory component set"));
+		return FString(TEXT(""));
 	}
 }

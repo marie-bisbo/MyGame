@@ -100,7 +100,7 @@ void ACharacterBase::PickUpItem()
 	AInteractable* InteractableDetected = Cast<AInteractable>(DetectInteractables().Hit.GetActor());
 	bool bInteractableDetected = DetectInteractables().bHitSuccessful && InteractableDetected;
 
-	if (!bInteractableDetected) return;
+	if (!bInteractableDetected && InteractableDetected->CanBePickedUp()) return;
 
 	if (InteractableDetected && InteractableDetected->CanBePickedUp())
 	{
