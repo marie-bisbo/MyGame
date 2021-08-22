@@ -20,5 +20,12 @@ bool AInteractable::CanBePickedUp() const
 
 FString AInteractable::GetUseActionText() const
 {
-	 return InventoryComponent->GetUseActionText(); 
+	if (InventoryComponent)
+	{
+		return InventoryComponent->GetUseActionText(); 
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("No inventory component set"));
+	}
 }

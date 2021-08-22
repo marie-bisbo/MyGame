@@ -156,7 +156,10 @@ void ACharacterBase::UseItem(UItemBase* Item)
 
 void ACharacterBase::EquipItem(UEquipableItem* Item)
 {
-	Item->SpawnInWorld();
-	bItemEquiped = true;
-	CurrentEquipedItem = Item;
+	if (!bItemEquiped)
+	{
+		Item->SpawnInWorld();
+		bItemEquiped = true;
+		CurrentEquipedItem = Item;
+	}
 }
