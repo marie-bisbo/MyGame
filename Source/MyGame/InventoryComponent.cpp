@@ -4,7 +4,6 @@
 #include "InventoryComponent.h"
 #include "ItemBase.h"
 
-// Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
 {
 	Capacity = 20;

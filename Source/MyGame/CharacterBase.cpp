@@ -104,7 +104,7 @@ void ACharacterBase::PickUpItem()
 
 	if (InteractableDetected && InteractableDetected->CanBePickedUp())
 	{
-		Inventory->AddItem(InteractableDetected->InventoryComponent);
+		Inventory->AddItem(InteractableDetected->InventoryEntry);
 		InteractableDetected->Destroy();
 	}
 }

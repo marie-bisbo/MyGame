@@ -17,7 +17,7 @@ public:
 	bool CanBePickedUp() const;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UItemBase* InventoryComponent;
+	class UItemBase* InventoryEntry;
 
 protected:
 	virtual void BeginPlay() override;
