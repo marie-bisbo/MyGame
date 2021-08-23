@@ -19,9 +19,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UItemBase* InventoryComponent;
 
-	UFUNCTION(BlueprintCallable, Category = "Interact")
-	FString GetUseActionText() const;
-
 protected:
 	virtual void BeginPlay() override;
 

@@ -45,5 +45,6 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnUse(class ACharacterBase* Character);
 
+	UFUNCTION(BlueprintCallable, Category = "Interact")
 	FString GetUseActionText() const { return FString::Printf(TEXT("%s"), *UseActionText.ToString()); }
 };
