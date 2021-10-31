@@ -43,5 +43,5 @@ public:
 	void OnUse(class ACharacterBase* Character);
 
 	UFUNCTION(BlueprintCallable, Category = "Interact")
-	FString GetUseActionText() const { return FString::Printf(TEXT("%s"), *UseActionText.ToString()); }
+	FString GetUseActionText() const { return FString::Printf(TEXT("%s: %s"), *UseActionText.ToString(), *ItemDisplayName.ToString()); }
 };

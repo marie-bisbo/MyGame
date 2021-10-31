@@ -16,11 +16,17 @@ public:
 
 	void EquipItem(class UEquipableItem* Item);
 
+	void EquipSuit(class UEquipableItem* Item);
+
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	void ChangeCurrentHealth(float Amount);
+
+	bool GetProtectedFromEnvironment() const;
+
+	void SetProtectedFromEnvironment(bool bIsProtected);
 
 	float GetCurrentHealth() const;
 
@@ -53,6 +59,9 @@ private:
 	class UInventoryComponent* Inventory;
 
 	UPROPERTY(EditAnywhere)
+	bool bProtectedFromEnvironment = false;
+
+	UPROPERTY(EditAnywhere)
 	float MaxHealth = 100.f;
 
 	UPROPERTY(VisibleAnywhere)
@@ -65,8 +74,14 @@ private:
 	class ULineTrace* DetectionTrace;
 
 	UPROPERTY(VisibleAnywhere)
-	bool bItemEquiped;
+	bool bItemEquiped = false;
+
+	UPROPERTY(VisibleAnywhere)
+	bool bSuitEquiped = false;
 
 	UPROPERTY(VisibleAnywhere)
 	class UEquipableItem* CurrentEquipedItem = nullptr;
+
+	UPROPERTY(VisibleAnywhere)
+	class UEquipableItem* CurrentEquipedSuit = nullptr;
 };

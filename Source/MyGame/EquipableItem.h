@@ -12,6 +12,6 @@ class MYGAME_API UEquipableItem : public UItemBase
 	GENERATED_BODY()
 
 public:
-	virtual void SpawnInWorld() PURE_VIRTUAL(UEquipableItem, );
-	virtual void UseEquiped() PURE_VIRTUAL(UEquipableItem, );
+	virtual void SpawnInWorld();
+	virtual void UseEquiped();
 };

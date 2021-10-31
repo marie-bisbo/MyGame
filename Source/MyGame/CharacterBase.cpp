@@ -47,7 +47,8 @@ void ACharacterBase::Tick(float DeltaTime)
 
 	DetectInteractables();
 
-	DecreaseHealthOverTime(DeltaTime);
+	if (!bProtectedFromEnvironment)
+		DecreaseHealthOverTime(DeltaTime);
 }
 
 void ACharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -125,6 +126,16 @@ void ACharacterBase::ChangeCurrentHealth(float Amount)
 	CurrentHealth = FMath::Min(MaxHealth, CurrentHealth += Amount);
 }
 
+bool ACharacterBase::GetProtectedFromEnvironment() const
+{
+	return bProtectedFromEnvironment;
+}
+
+void ACharacterBase::SetProtectedFromEnvironment(bool bIsProtected)
+{
+	bProtectedFromEnvironment = bIsProtected;
+}
+
 float ACharacterBase::GetCurrentHealth() const
 {
 	return CurrentHealth;
@@ -161,5 +172,14 @@ void ACharacterBase::EquipItem(UEquipableItem* Item)
 		Item->SpawnInWorld();
 		bItemEquiped = true;
 		CurrentEquipedItem = Item;
+	}
+}
+
+void ACharacterBase::EquipSuit(UEquipableItem* Item)
+{
+	if (!bSuitEquiped)
+	{
+		bSuitEquiped = true;
+		CurrentEquipedSuit = Item;
 	}
 }
