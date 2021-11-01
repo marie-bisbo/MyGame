@@ -46,7 +46,7 @@ bool UInventoryComponent::RemoveItem(UItemBase* Item)
 	return false;
 }
 
-int32 UInventoryComponent::GetCapacity()
+int32 UInventoryComponent::GetCapacity() const
 {
 	return Capacity;
 }
@@ -54,5 +54,10 @@ int32 UInventoryComponent::GetCapacity()
 void UInventoryComponent::SetCapacity(int32 CapacityAmount)
 {
 	Capacity = CapacityAmount;
+}
+
+bool UInventoryComponent::IsFull() const
+{
+	return Items.Num() >= Capacity;
 }
 

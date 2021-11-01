@@ -97,6 +97,8 @@ FLineTraceResult ACharacterBase::DetectInteractables()
 
 void ACharacterBase::PickUpItem()
 {
+	if (Inventory->IsFull()) return;
+
 	UObject* ItemDetected = DetectInteractables().Hit.GetComponent();
 	AInteractable* InteractableDetected = Cast<AInteractable>(DetectInteractables().Hit.GetActor());
 	bool bInteractableDetected = DetectInteractables().bHitSuccessful && InteractableDetected;

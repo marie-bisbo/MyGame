@@ -22,8 +22,10 @@ public:
 	bool AddItem(class UItemBase* Item);
 	bool RemoveItem(class UItemBase* Item);
 
-	int32 GetCapacity();
+	int32 GetCapacity() const;
 	void SetCapacity(int32 CapacityAmount);
+
+	bool IsFull() const;
 
 	UPROPERTY(BlueprintAssignable, Category = "Inventory")
 	FOnInventoryUpdated OnInventoryUpdated;
